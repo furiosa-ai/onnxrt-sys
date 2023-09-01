@@ -265,13 +265,13 @@ fn main() {
     let input_node_names_cstring: Vec<std::ffi::CString> =
         input_node_names.iter().map(|&n| std::ffi::CString::new(n).unwrap()).collect();
     let input_node_names_ptr: Vec<*const i8> =
-        input_node_names_cstring.iter().map(|n| n.as_ptr() as *const i8).collect();
+        input_node_names_cstring.iter().map(|n| n.as_ptr()).collect();
     let input_node_names_ptr_ptr: *const *const i8 = input_node_names_ptr.as_ptr();
 
     let output_node_names_cstring: Vec<std::ffi::CString> =
         output_node_names.iter().map(|&n| std::ffi::CString::new(n).unwrap()).collect();
     let output_node_names_ptr: Vec<*const i8> =
-        output_node_names_cstring.iter().map(|n| n.as_ptr() as *const i8).collect();
+        output_node_names_cstring.iter().map(|n| n.as_ptr()).collect();
     let output_node_names_ptr_ptr: *const *const i8 = output_node_names_ptr.as_ptr();
 
     let run_options_ptr: *const OrtRunOptions = std::ptr::null();
