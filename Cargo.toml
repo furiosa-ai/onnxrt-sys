@@ -25,4 +25,4 @@ flate2 = "1.0.28"
 tar = "0.4.40"
 
 [target.'cfg(windows)'.build-dependencies]
-zip = "0.6.6"
+zip = { version = "0.6.6", default-features = false, features = ["deflate"] }
